@@ -1,31 +1,30 @@
 # Template file for 'microsoft-edge-dev'
 pkgname=microsoft-edge-dev
-version=90.0.818.0
-revision=2
+version=90.0.818.6
+revision=1
 archs="x86_64"
-hostmakedepends="tar xz"
+hostmakedepends="bsdtar tar xz"
 depends="xdg-utils"
 short_desc="Microsoft Edge browser - development branch"
 maintainer="Zach Dykstra <dykstra.zachary@gmail.com>"
 license="custom:Proprietary"
 homepage="https://www.microsoftedgeinsider.com/en-us/"
 distfiles="https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/${pkgname}_${version}-1_amd64.deb"
-checksum=f376563802a02afdaeec086c14b750c6c499f6d87ffa45e355d21de07c2e9a7d
+checksum=faf5981764fd570c17b6df675ed296e750de4c2044c6c57e7df7af376763d90a
 restricted=yes
 repository="nonfree"
 nopie=yes
 nostrip=yes
 
 do_extract() {
-	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-1_amd64.deb
-	tar xf data.tar.xz
+	ar p ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-1_amd64.deb data.tar.xz | bsdtar --extract --xz -f - -C .
 }
 
 do_install() {
 	vinstall usr/share/applications/microsoft-edge-dev.desktop 644 usr/share/applications
 
-	vcopy opt/microsoft opt/microsoft
+	vcopy opt/ opt
 
-	mkdir ${DESTDIR}/usr/bin
+	vmkdir usr/bin
 	ln -s ../../opt/microsoft/msedge-dev/microsoft-edge-dev ${DESTDIR}/usr/bin/microsoft-edge-dev
 }
