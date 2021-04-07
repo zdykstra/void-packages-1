@@ -1,6 +1,6 @@
 # Template file for 'microsoft-edge-dev'
 pkgname=microsoft-edge-dev
-version=91.0.838.3
+version=91.0.845.2
 revision=1
 archs="x86_64"
 hostmakedepends="bsdtar tar xz"
@@ -10,7 +10,7 @@ maintainer="Zach Dykstra <dykstra.zachary@gmail.com>"
 license="custom:Proprietary"
 homepage="https://www.microsoftedgeinsider.com/en-us/"
 distfiles="https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-dev/${pkgname}_${version}-1_amd64.deb"
-checksum=cce217648a377fa4cfec41a17c9c17f28da3decb89503202a7167623f789e648
+checksum=e4c69a695b259e7eaa8411910b9e8758ca5b183b82a8048a97936013c84e5ebe
 restricted=yes
 repository="nonfree"
 nopie=yes
