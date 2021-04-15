@@ -27,4 +27,8 @@ do_install() {
 
 	vmkdir usr/bin
 	ln -s ../../opt/microsoft/msedge-dev/microsoft-edge-dev ${DESTDIR}/usr/bin/microsoft-edge-dev
+
+	vdoc usr/share/doc/microsoft-edge-dev/changelog.gz
+	vlicense usr/share/doc/microsoft-edge-dev/changelog.gz
+	vman usr/share/man/man1/microsoft-edge-dev.1.gz
 }
